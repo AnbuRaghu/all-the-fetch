@@ -26,7 +26,7 @@ export function getData() {
     })
     .then((blob) => {
       console.log(blob); //blob is a chunk of memory on users computer
-      let url = URL.createObjectURL(blob);
+      let url = URL.createObjectURL(blob); // we point the image where it's stored in the memory of users computer s url
       let img = document.getElementById('pic');
       img.src = url;
     })

@@ -24,6 +24,7 @@ export function getData() {
     method: 'GET',
     headers: h,
     cache: 'default',
+    // here we tell that if the credntials like authorization api key can be sent with same origin
     credentials: 'same-origin',
   });
 

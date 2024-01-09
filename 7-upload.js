@@ -17,10 +17,11 @@ export function setData() {
       name: 'steve',
     };
     let jsonstring = JSON.stringify(obj);
-
+// if i pass the whole form to the formdata it will add all data with name attribute and send multiple data
     let fd = new FormData(document.getElementById('myform'));
     // console.log(imgInput.files[0]);
     // fd.append('imageFile', imgInput.files[0], imgInput.files[0].name);
+  
 
     let request = new Request(endpoint, {
       method: 'POST',

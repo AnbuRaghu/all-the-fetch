@@ -43,6 +43,35 @@ A CORS-safelisted response-header names
 `Cache-Control` `Content-Language` `Content-Length` `Content-Type` `Expires` `Last-Modified` `Pragma`
 */
 
+
+/**  
+Cross-Origin Resource Sharing (CORS) is a security feature implemented by web browsers to control how web pages in one domain can request and interact with resources (like APIs) from another domain. It is designed to prevent potentially unsafe cross-origin requests initiated by scripts running on a web page.
+
+Here are some key points related to CORS:
+
+Origin Header:
+
+All requests that are not GET or HEAD need to include an Origin header, indicating the origin (protocol, domain, and port) from which the request is coming. This header is set by the browser automatically, not by the script.
+Server Response:
+
+The server needs to include the Access-Control-Allow-Origin header in its response, indicating which origins are permitted to access the resource. For example, Access-Control-Allow-Origin: http://127.0.0.1:5500.
+Simple Requests:
+
+Certain requests are considered "simple" and do not trigger a preflight OPTIONS request. Simple requests meet specific criteria, including using standard methods (GET, HEAD, POST), specific headers, and specific content types.
+Preflight Requests:
+
+For non-simple requests, the browser sends a preflight OPTIONS request to the server, including the Access-Control-Request-Method and Access-Control-Request-Headers headers. The server must respond with appropriate headers to allow the actual request.
+Request Mode:
+
+Requests can have different modes, such as no-cors (skipping the OPTIONS request), cors (meeting CORS criteria, including OPTIONS request), same-origin (must be from the same origin), and navigate (for navigation requests).
+Opaque Responses:
+
+Opaque responses are used for certain types of resources, such as <script>, <link rel="stylesheet">, <img>, <video>, <audio>, <iframe>, <embed>, or <object>. They have a status of 0 and can't be directly accessed by the script.
+CORS-Safelisted Response-Headers:
+
+Certain response headers, like Cache-Control, Content-Language, Content-Length, Content-Type, Expires, Last-Modified, and Pragma, are considered safe and can be included in responses without triggering CORS issues.
+ */
+
 export function getData() {
   //
   const imgurl = `https://picsum.photos/id/237/300/200`;
